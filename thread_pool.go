@@ -1,4 +1,4 @@
-package threads
+package goutil
 
 import (
 	"sync"

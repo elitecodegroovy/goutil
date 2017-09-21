@@ -1,5 +1,4 @@
 package goutil
-
 import (
 	"encoding/json"
 	"errors"
