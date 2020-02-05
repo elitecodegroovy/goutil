@@ -4,7 +4,9 @@ import (
 	"crypto/hmac"
 	"crypto/md5"
 	"crypto/rand"
+	"crypto/sha1"
 	"crypto/sha256"
+	"crypto/sha512"
 	"encoding/base64"
 	"encoding/hex"
 	"errors"
@@ -37,6 +39,24 @@ func EncodePassword(password string, salt string) string {
 // EncodeMd5 encodes a string to md5 hex value.
 func EncodeMd5(str string) string {
 	m := md5.New()
+	m.Write([]byte(str))
+	return hex.EncodeToString(m.Sum(nil))
+}
+
+func EncodeSha1(str string) string {
+	m := sha1.New()
+	m.Write([]byte(str))
+	return hex.EncodeToString(m.Sum(nil))
+}
+
+func EncodeSha256(str string) string {
+	m := sha256.New()
+	m.Write([]byte(str))
+	return hex.EncodeToString(m.Sum(nil))
+}
+
+func EncodeSha512(str string) string {
+	m := sha512.New()
 	m.Write([]byte(str))
 	return hex.EncodeToString(m.Sum(nil))
 }
