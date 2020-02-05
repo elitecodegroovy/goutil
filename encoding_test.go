@@ -41,3 +41,10 @@ func TestStartFormatInt(t *testing.T) {
 	a = "12"
 	fmt.Println("output 14 is ", OuterFunc(strToInt, 2) == "14")
 }
+
+func TestEncodeMd5(t *testing.T) {
+	Convey("md5 encoding", t, func() {
+		encodedPassword := EncodeMd5("123456")
+		So(encodedPassword, ShouldEqual, "e10adc3949ba59abbe56e057f20f883e")
+	})
+}

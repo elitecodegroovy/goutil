@@ -1,9 +1,7 @@
 package goutil
 
 import (
-	"fmt"
 	"strconv"
-	"testing"
 )
 
 var a string = "1"

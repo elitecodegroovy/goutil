@@ -81,12 +81,14 @@ func PBKDF2(password, salt []byte, iter, keyLen int, h func() hash.Hash) []byte 
 	return dk[:keyLen]
 }
 
+//RFC 4648 encoding string serial.
 // GetBasicAuthHeader returns a base64 encoded string from user and password.
 func GetBasicAuthHeader(user string, password string) string {
 	var userAndPass = user + ":" + password
 	return "Basic " + base64.StdEncoding.EncodeToString([]byte(userAndPass))
 }
 
+//RFC 4648 decoding string serial.
 // DecodeBasicAuthHeader decodes user and password from a basic auth header.
 func DecodeBasicAuthHeader(header string) (string, string, error) {
 	var code string
