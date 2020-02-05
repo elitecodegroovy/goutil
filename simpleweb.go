@@ -1,5 +1,6 @@
 package goutil
 
+/*
 import (
 	"encoding/json"
 	"errors"
@@ -60,7 +61,7 @@ func SetUserRoutes() *mux.Router {
 	r.HandleFunc("/users", CreateUser).Methods("POST")
 	r.HandleFunc("/users", GetUsers).Methods("GET")
 	return r
-}
+}*/
 
 //func main() {
 //	http.ListenAndServe(":8080", SetUserRoutes())

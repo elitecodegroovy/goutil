@@ -5,6 +5,12 @@ import (
 	"time"
 )
 
+const (
+	LayoutDateISO       = "2006-01-02"
+	LayoutTimeISO       = "2006-01-02 15:04:05"
+	LayoutTimeNumberISO = "20060102150405"
+)
+
 func FormatTime() {
 	// get current timestamp
 	currentTime := time.Now().Local()
@@ -26,7 +32,7 @@ func FormatTime() {
 
 	//TODO Changing time layout(form)
 	form := "2006-01-02 15:04:05"
-	time , err := time.Parse(form, "2017-03-02 19:04:05")
+	time, err := time.Parse(form, "2017-03-02 19:04:05")
 	if err != nil {
 		fmt.Println("parsing time error", err)
 	}
@@ -43,6 +49,37 @@ func StartCac() {
 	fmt.Println("App elapsed: ", elapsed)
 }
 
-func main(){
-	FormatTime()
+func GetCurrentDateISOStrDate() string {
+	t := time.Now()
+	return t.Format(LayoutDateISO)
 }
+
+func GetISOStrDate(t time.Time) string {
+	return t.Format(LayoutDateISO)
+}
+
+func GetCurrentTimeISOStrTime() string {
+	t := time.Now()
+	return t.Format(LayoutTimeISO)
+}
+
+func GetISOStrTime(t time.Time) string {
+	return t.Format(LayoutTimeISO)
+}
+
+func GetCurrentTimeNumberISOStrTime() string {
+	t := time.Now()
+	return t.Format(LayoutTimeNumberISO)
+}
+
+func GetISOStrTimeNumber(t time.Time) string {
+	return t.Format(LayoutTimeNumberISO)
+}
+
+func GetStrTime(t time.Time, format string) string {
+	return t.Format(format)
+}
+
+//func main(){
+//	FormatTime()
+//}

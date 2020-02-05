@@ -7,12 +7,6 @@ import (
 	"time"
 )
 
-const (
-	LayoutDateISO       = "2006-01-02"
-	LayoutTimeISO       = "2006-01-02 15:04:05"
-	LayoutTimeNumberISO = "20060102150405"
-)
-
 // StringsFallback2 returns the first of two not empty strings.
 func StringsFallback2(val1 string, val2 string) string {
 	return stringsFallback(val1, val2)
@@ -71,31 +65,4 @@ func GetAgeString(t time.Time) string {
 	}
 
 	return "< 1m"
-}
-
-func GetCurrentDateISOStrTime() string {
-	t := time.Now()
-	return t.Format(LayoutDateISO)
-}
-
-func GetISOStrDateTime(t time.Time) string {
-	return t.Format(LayoutDateISO)
-}
-
-func GetCurrentTimeISOStrTime() string {
-	t := time.Now()
-	return t.Format(LayoutTimeISO)
-}
-
-func GetISOStrTime(t time.Time) string {
-	return t.Format(LayoutTimeISO)
-}
-
-func GetCurrentTimeNumberISOStrTime() string {
-	t := time.Now()
-	return t.Format(LayoutTimeNumberISO)
-}
-
-func GetISOStrTimeNumber(t time.Time) string {
-	return t.Format(LayoutTimeNumberISO)
 }
