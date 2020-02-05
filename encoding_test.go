@@ -1,6 +1,9 @@
 package goutil
 
 import (
+	"fmt"
+	. "github.com/smartystreets/goconvey/convey"
+	"strconv"
 	"testing"
 )
 
@@ -24,4 +27,17 @@ func TestEncoding(t *testing.T) {
 		encodedPassword := EncodePassword("iamgod", "pepper")
 		So(encodedPassword, ShouldEqual, "e59c568621e57756495a468f47c74e07c911b037084dd464bb2ed72410970dc849cabd71b48c394faf08a5405dae53741ce9")
 	})
+}
+
+func TestStartFormatInt(t *testing.T) {
+	strToInt := func(s string) int {
+		//Atoi is shorthand for ParseInt(s, 10, 0).
+		num, err := strconv.Atoi(s)
+		if err != nil {
+			fmt.Println("error :", s, ", info :", err)
+		}
+		return num
+	}
+	a = "12"
+	fmt.Println("output 14 is ", OuterFunc(strToInt, 2) == "14")
 }
