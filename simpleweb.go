@@ -1,10 +1,11 @@
 package goutil
+
 import (
 	"encoding/json"
 	"errors"
 	"net/http"
 
-	"mux"
+	"github.com/gorilla/mux"
 )
 
 type User struct {
