@@ -28,6 +28,8 @@ ecoding.go
 - [x] `GetCurrentTimeNumberISOStrTime() string `:  gets the current time with the format "20060102150405".
       `GetISOStrTimeNumber(t time.Time) string `: does the same functionality.
 - [x] `GetStrTime(t time.Time, format string) string `:  gets the current time with the provided format parameter.
+- [x] `ParseLocal(datestr string) (time.Time, error)`: Parses local given an unknown date format, detect the layout, using time.Local.
+      `ParseIn(datestr string, loc *time.Location) (time.Time, error) `: Parses given an unknown date format , detect the layout, using `loc` parameter.
 
 ## url Opts
 
