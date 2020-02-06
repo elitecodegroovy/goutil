@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func ExampleParseIn(t *testing.T) {
+func TestParseIn(t *testing.T) {
 	denverLoc, err := time.LoadLocation("Asia/Chongqing")
 	if err != nil {
 		t.Fatal(err.Error())
@@ -28,7 +28,7 @@ func ExampleParseIn(t *testing.T) {
 	//     t, err := dateparse.ParseIn("3/1/2014", denverLoc)
 }
 
-func ExampleParseLocal(t *testing.T) {
+func TestParseLocal(t *testing.T) {
 	var err error
 	var time1 time.Time
 	if time1, err = ParseLocal("2014/01/15"); err != nil {
