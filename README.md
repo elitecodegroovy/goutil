@@ -33,7 +33,8 @@ ecoding.go
 
 ## url Opts
 
-- [x] `GetCurrentDateISOStrDate() string`:  gets the current time with the format "2006-01-02".
+- [x] `JoinURLFragments(a, b string) string`:  joins two URL fragments into only one URL string. if it provides "http://localhost:8080/" and "api", then gets result "http://localhost:8080/api".
+
 
 
 ## File Opts
