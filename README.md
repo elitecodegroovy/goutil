@@ -54,6 +54,9 @@ ip_address.go
 
 ## XML Opts
 
+## Others 
+
+- [x] `IsEmail(str string) bool`: checks if a string is a valid email address..  
 
 
 
