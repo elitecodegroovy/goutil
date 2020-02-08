@@ -11,7 +11,9 @@ import (
 )
 
 var (
-	l                              *Logger
+	inited = false
+	l      *Logger
+
 	sp                             = string(filepath.Separator)
 	errWS, warnWS, infoWS, debugWS zapcore.WriteSyncer       // IO输出
 	debugConsoleWS                 = zapcore.Lock(os.Stdout) // 控制台标准输出
@@ -27,26 +29,26 @@ type Logger struct {
 	sync.RWMutex
 	Opts      *Options `json:"opts"`
 	zapConfig zap.Config
-	inited    bool
+	once      sync.Once
 }
 
 func GetLogger() *Logger {
-	l = &Logger{
-		Opts: &Options{},
+	if !inited {
+		l = &Logger{
+			Opts: &Options{},
+		}
+
+		l.Lock()
+		defer l.Unlock()
+
+		l.once.Do(func() {
+			l.loadCfg()
+			l.init()
+			l.Info("[initLogger] zap plugin initializing completed")
+			inited = true
+		})
 	}
 
-	l.Lock()
-	defer l.Unlock()
-
-	if l.inited {
-		l.Info("[initLogger] logger Inited")
-		return l
-	}
-
-	l.loadCfg()
-	l.init()
-	l.Info("[initLogger] zap plugin initializing completed")
-	l.inited = true
 	return l
 }
 
